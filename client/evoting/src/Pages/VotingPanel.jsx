@@ -1,9 +1,12 @@
 import React from "react";
-
+import Navbar from "../components/Navbar";
 export default function VotingPanel(){
     return(
         <>
-        <div className="h-full text-white  w-full">
+         <div className="h-full text-white  w-full bg-blue-900">
+          <Navbar/>
+        <div className="h-full text-white  w-full bg-blue-900">
+            
 
 <div className="h-full w-full flex justify-center items-center">
     <div className="grid grid-cols-2 ">
@@ -31,6 +34,7 @@ inexpensive, faster results and others.</h2>
 
 
 
+        </div>
         </div>
        </>
     )

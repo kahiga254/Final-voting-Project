@@ -1,19 +1,58 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import { id } from './constants/addresses'
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
+//import './App.css'
+import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react'
+
+import { WagmiConfig } from 'wagmi'
+import { arbitrum, mainnet, polygonMumbai } from 'viem/chains'
+
+// 1. Get projectId
+const projectId = id
+
+// 2. Create wagmiConfig
+const metadata = {
+  name: 'Web3Modal',
+  description: 'Web3Modal Example',
+  url: 'https://web3modal.com',
+  icons: ['https://avatars.githubusercontent.com/u/37784886']
+}
+
+const chains = [polygonMumbai];
+const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata })
+
+// 3. Create modal
+createWeb3Modal({ wagmiConfig, projectId, chains })
 import LandingPage from './Pages/LandingPage'
 import RegistrationPage from './Pages/RegistrationForm'
 import VotingPanel from './Pages/VotingPanel'
-// forge create --rpc-url   https://rpc-mumbai.maticvigil.com --private-key  952369c437b7813b1bfb94ab753a75ed458880e05fe9e753f34ceba7147c1460     src/Evoting.sol:Evotin
+import RegistrationAcademicPage from './Pages/AccademicPage'
+import RegistrationSportPage from './Pages/SportsAccademic'
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className='bg-blue-900 w-full  h-screen flex'>
+     <WagmiConfig config={wagmiConfig}>
+     <Router>
+      <Routes>
+      <Route element={<LandingPage/>} path='/'/>
+        <Route element={<LandingPage/>} path='/home'/>
+        <Route element={<RegistrationPage/>} path='/registration'/>
+        <Route element={<VotingPanel/>} path='/voting'/>
+        <Route element={<RegistrationAcademicPage/>} path='/academic'/>
+        <Route element={<RegistrationSportPage/>} path='/sport'/>
+
+      </Routes>
+    </Router>
+   
+    </WagmiConfig>
+      {/* <div className='bg-blue-900 w-full  h-screen flex'>
         <VotingPanel/>
-      </div>
+      </div> */}
     </>
   )
 }

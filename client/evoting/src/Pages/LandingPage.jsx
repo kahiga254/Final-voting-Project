@@ -1,9 +1,13 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 export default function LandingPage(){
+  const navigate = useNavigate();
     return(
         <>
-        <div className="h-full text-white  w-full">
+        <div className="h-full text-white  w-full bg-blue-900">
+          <Navbar/>
+
         <div className="h-1/2 w-full">
   <div className="h-1/2 w-full flex-col text-7xl justify-start items-start pt-10 ">
     <h1 className="text-7xl pb-10">Hello There...</h1>
@@ -20,7 +24,7 @@ export default function LandingPage(){
       <button className="text-center">LOGIN</button>
     </div>
     <div>
-      <button className="w-40 h-10 bg-gray-400 text-white rounded-xl flex items-center justify-center">REGISTER</button>
+      <button onClick={()=>{navigate("/registration")}}className="w-40 h-10 bg-gray-400 text-white rounded-xl flex items-center justify-center">REGISTER</button>
     </div>
   </div>
 </div>

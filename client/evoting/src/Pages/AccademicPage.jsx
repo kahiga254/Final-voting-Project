@@ -5,10 +5,8 @@ import { useAccount } from 'wagmi'
 import {useContractWrite,useContractRead} from "wagmi"
 import EvotingAbi from "../constants/Evoting.json"
 import { EvotingAddress } from "../constants/addresses";
-import { useNavigate } from "react-router-dom";
 
-export default function RegistrationPage() {
-  const navigate =useNavigate()
+export default function RegistrationAcademicPage() {
   const { address, isConnecting, isDisconnected } = useAccount()
 
   const [name, setName] = useState("");
@@ -47,7 +45,7 @@ export default function RegistrationPage() {
   } = useContractWrite({
     address:EvotingAddress,
     abi:EvotingAbi,
-    functionName: "addPresident",
+    functionName: "addAccadmicRep",
     args: [name,registrationNum,delegate],
    
     
@@ -66,7 +64,7 @@ await registerPresident();
       <Navbar />
       <div className="h-full text-white w-full grid grid-cols-2 bg-blue-900">
         <div className="w-full h-full flex flex-col justify-start pt-10 mt-10">
-          <h1 className="text-5xl">President Registration Form</h1>
+          <h1 className="text-5xl">Academic Registration Form</h1>
           <div className="flex-grow mt-10">
             <form className="mt-6 h-full" onSubmit={handleSubmit}>
               <div className="mt-10 flex flex-col pl-10 justify-start">
@@ -113,14 +111,9 @@ await registerPresident();
           </div>
         </div>
         <div className="h-full w-full flex justify-center items-center">
-          <div className="flex flex-row mt-80 gap-8 ml-16 h-full w-full">
-          <div className="w-full ">
-            
-            <button onClick={()=>{navigate("/sport")}} className="mr-4">Sports</button>
-            <button onClick={()=>{navigate("/academic")}}>Academic</button>
-          </div>
+          
           <img src={reactLogo} alt="yellow" className="h-1/2 w-1/2" />
-          </div>
+         
          
         </div>
       </div>
