@@ -30,6 +30,7 @@ import RegistrationPage from './Pages/RegistrationForm'
 import VotingPanel from './Pages/VotingPanel'
 import RegistrationAcademicPage from './Pages/AccademicPage'
 import RegistrationSportPage from './Pages/SportsAccademic'
+import RegistrationDelegatePage from './Pages/DelegatePage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -45,6 +46,7 @@ function App() {
         <Route element={<VotingPanel/>} path='/voting'/>
         <Route element={<RegistrationAcademicPage/>} path='/academic'/>
         <Route element={<RegistrationSportPage/>} path='/sport'/>
+        <Route element={<RegistrationDelegatePage/>} path='/delegate'/>
 
       </Routes>
     </Router>

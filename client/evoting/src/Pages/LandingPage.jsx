@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import HomeNavBar from "../components/HomeNavbar";
 export default function LandingPage(){
   const navigate = useNavigate();
     return(
         <>
         <div className="h-full text-white  w-full bg-blue-900">
-          <Navbar/>
+          <HomeNavBar/>
 
         <div className="h-1/2 w-full">
   <div className="h-1/2 w-full flex-col text-7xl justify-start items-start pt-10 ">
@@ -20,11 +21,11 @@ export default function LandingPage(){
 </div>
 <div className="w-full justify-start text-white mt-48">
   <div className="w-1/2 h-full flex justify-around">
-    <div className="bg-gray-400 w-40 h-10 text-center rounded-xl flex items-center justify-center">
+    {/* <div className="bg-gray-400 w-40 h-10 text-center rounded-xl flex items-center justify-center">
       <button className="text-center">LOGIN</button>
-    </div>
+    </div> */}
     <div>
-      <button onClick={()=>{navigate("/registration")}}className="w-40 h-10 bg-gray-400 text-white rounded-xl flex items-center justify-center">REGISTER</button>
+      {/* <button onClick={()=>{navigate("/registration")}}className="w-40 h-10 bg-gray-400 text-white rounded-xl flex items-center justify-center">REGISTER</button> */}
     </div>
   </div>
 </div>
