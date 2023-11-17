@@ -19,92 +19,56 @@ export default function UpdateSportsPage() {
 
 
 
-    const { data:president, isError, isLoading } = useContractRead({
-        address: EvotingAddress,
-        abi: EvotingAbi,
-        functionName: 'getAllPresidents',
-        
-      })
-      //getAllSports reps
+    
       const { data:sportsrep, isError:SportError, isLoading:SportLoanding } = useContractRead({
         address: EvotingAddress,
         abi: EvotingAbi,
         functionName: 'getAllSports',
         
       })
-      //academic reps
-      //getAllSports reps
-      const { data:accademicrep, isError:AccademicError, isLoading:accademicLoanding } = useContractRead({
+      
+      
+      
+      
+      
+     
+     //update users
+     const {writeAsync:UpdateforPresident} = useContractWrite({
         address: EvotingAddress,
-        abi: EvotingAbi,
-        functionName: 'getAllAccademicReps',
+        abi:EvotingAbi,
+        functionName:"updateSportsRep",
+        args:[presidentnewIndex,name,regNo,school]
+      })
+      
+     
+   //updateAccademic
+   //handle onupdate
+   const handleUpdate = async () => {
         
-      })
-      //vote for president
-      const {writeAsync:voteforPresident} = useContractWrite({
-        address: EvotingAddress,
-        abi:EvotingAbi,
-        functionName:"voteForPresident",
-        args:[presidentIndex]
-      })
-      //update users
-      const {writeAsync:UpdateforPresident} = useContractWrite({
-        address: EvotingAddress,
-        abi:EvotingAbi,
-        functionName:"updatePresident",
-        args:[presidentIndex]
-      })
-      const {writeAsync:UpdateforSchoolRep} = useContractWrite({
-        address: EvotingAddress,
-        abi:EvotingAbi,
-        functionName:"voteForPresident",
-        args:[presidentIndex]
-      })
-      const {writeAsync:UpdateforSports} = useContractWrite({
-        address: EvotingAddress,
-        abi:EvotingAbi,
-        functionName:"voteForPresident",
-        args:[presidentIndex]
-      })
-      //handle onupdate
-      const handleVoteSubmit = async (typeOfUser) => {
-        setShowPopup(true);
 
-        // Add logic to handle voting submission
-        try {
-          // Call your voting function with the collected data
-          await voteforPresident();
-          // Close the pop-up form
-          setShowPopup(false);
-        } catch (error) {
-          console.log("Voting Error", error);
-        }
-      };
-      //function handle voting for president
-      const handleVotingForPresident = async(index)=>{
-        setPresidentIndex(index);
-        try{
-await voteforPresident();
+    // Add logic to handle voting submission
+    try {
+      // Call your voting function with the collected data
+      await UpdateforPresident();
+      // Close the pop-up form
+      setShowPopup(true);
+    } catch (error) {
+      console.log("Voting Error", error);
+    }
+  };
+   //updatePrsident
+   const handleUpdatePresident = async(_index)=>{
+    try{
+        
+setPresidentnewtIndex(_index);
+setShowPopup(false)
 
-        }catch(error){
-            console.log("Voting Error",error);
-        }
-      }
-    const items =[
-        {_name:"terry",
-        _regNo:"sct45465",
-        _school:"jkuat",
-          noofVotes:12345},{_name:"terry",
-          _regNo:"sct45465",
-          _school:"jkuat",
-            noofVotes:12345}]
-
-            useEffect(()=>{
-  
-            },[])
-
+    }catch(error){
+       console.log("error",error); 
+    }
+}
 useEffect(()=>{
-    console.log("data freelancers",president);
+    console.log("data freelancers");
 },[])
   return (
     <>
@@ -138,7 +102,7 @@ useEffect(()=>{
       <p className="text-gray-600">Votes: {Number(item.noofVotes)}</p>
 </div>
 <div className="flex justify-center rounded items-center bg-teal-400">
-<button onClick={()=>setShowPopup(false)} >Update</button>
+<button onClick={() => handleUpdatePresident(index)}>Update</button>
 
 </div>
       
@@ -185,7 +149,7 @@ useEffect(()=>{
             </div>
       
             <button
-              onClick={handleVoteSubmit}
+               onClick={handleUpdate}
               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
             >
               Submit

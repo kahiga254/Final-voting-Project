@@ -10,6 +10,7 @@ import { EvotingAddress } from "../constants/addresses";
 export default function UpdatePage() {
     const navigate =useNavigate();
     const [presidentIndex,setPresidentIndex] = useState();
+    const [isupdatebuttonOpen,setUpdateButtonOpen]= useState(true);
     const [showPopup, setShowPopup] = useState(true);
     const [name,setName]=useState()
     const [regNo,setRegNo]=useState()
@@ -26,91 +27,52 @@ export default function UpdatePage() {
         
       })
       //getAllSports reps
-      const { data:sportsrep, isError:SportError, isLoading:SportLoanding } = useContractRead({
-        address: EvotingAddress,
-        abi: EvotingAbi,
-        functionName: 'getAllSports',
-        
-      })
+      
       //academic reps
-      //getAllSports reps
-      const { data:accademicrep, isError:AccademicError, isLoading:accademicLoanding } = useContractRead({
-        address: EvotingAddress,
-        abi: EvotingAbi,
-        functionName: 'getAllAccademicReps',
-        
-      })
-      //vote for president
-      const {writeAsync:voteforPresident} = useContractWrite({
-        address: EvotingAddress,
-        abi:EvotingAbi,
-        functionName:"voteForPresident",
-        args:[presidentIndex]
-      })
+     
+     
       //update users
       const {writeAsync:UpdateforPresident} = useContractWrite({
         address: EvotingAddress,
         abi:EvotingAbi,
         functionName:"updatePresident",
-        args:[presidentIndex]
+        args:[presidentnewIndex,name,regNo,school]
       })
-      const {writeAsync:UpdateforSchoolRep} = useContractWrite({
-        address: EvotingAddress,
-        abi:EvotingAbi,
-        functionName:"voteForPresident",
-        args:[presidentIndex]
-      })
-      const {writeAsync:UpdateforSports} = useContractWrite({
-        address: EvotingAddress,
-        abi:EvotingAbi,
-        functionName:"voteForPresident",
-        args:[presidentIndex]
-      })
+      
+    //   const {writeAsync:UpdateforSports} = useContractWrite({
+    //     address: EvotingAddress,
+    //     abi:EvotingAbi,
+    //     functionName:"voteForPresident",
+    //     args:[presidentnewIndex,name,regNo,school]
+    //   })
       //handle onupdate
-      const handleVoteSubmit = async (typeOfUser) => {
-        setShowPopup(true);
+      const handleUpdate = async () => {
+        
 
         // Add logic to handle voting submission
         try {
           // Call your voting function with the collected data
-          await voteforPresident();
+          await UpdateforPresident();
           // Close the pop-up form
-          setShowPopup(false);
+          setShowPopup(true);
         } catch (error) {
           console.log("Voting Error", error);
         }
       };
-      //function handle voting for president
-      const handleVotingForPresident = async(index)=>{
-        setPresidentIndex(index);
-        try{
-await voteforPresident();
-
-        }catch(error){
-            console.log("Voting Error",error);
-        }
-      }
-    const items =[
-        {_name:"terry",
-        _regNo:"sct45465",
-        _school:"jkuat",
-          noofVotes:12345},{_name:"terry",
-          _regNo:"sct45465",
-          _school:"jkuat",
-            noofVotes:12345}]
-
-            useEffect(()=>{
-  
-            },[])
+      
 
             //updatePrsident
-            const handleUpdatePresident = async()=>{
+            const handleUpdatePresident = async(_index)=>{
                 try{
+                    
+setPresidentnewtIndex(_index);
+
 
                 }catch(error){
-                    
+                   console.log("error",error); 
                 }
             }
+            
 
 useEffect(()=>{
     console.log("data freelancers",president);
@@ -147,7 +109,8 @@ useEffect(()=>{
         <p className="text-gray-600">Votes: {Number(item.noofVotes)}</p>
   </div>
   <div className="flex justify-center rounded items-center bg-teal-400">
-    <button onClick={handleUpdatePresident(index)} >Update</button>
+  <button onClick={() => handleUpdatePresident(index)}>Update</button>
+
 
   </div>
         
@@ -194,7 +157,7 @@ useEffect(()=>{
             </div>
       
             <button
-              onClick={handleVoteSubmit}
+              onClick={handleUpdate}
               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
             >
               Submit
