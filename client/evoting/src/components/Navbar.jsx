@@ -9,7 +9,7 @@ const Navbar =()=>{
         <>
         <div className="w-full h-10 bg-gray-500 ">
             <div className="w-full h-full flex justify-around items-center">
-                <div className="flex justify-around w-1/4 items-center">
+                <div className="flex justify-around w-1/2 items-center">
                     <div className="bg-white h-15 w-20 text-center rounded">
                     <button onClick={()=>{navigate("/home")}} className="text-black">Home</button>
                     </div>
@@ -19,6 +19,10 @@ const Navbar =()=>{
                     </div>
                     <div className="bg-white h-15 w-20 text-center rounded">
                     <button onClick={()=>{navigate("/voting")}} className="text-black">Voting</button>
+                    </div>
+                    <div className="bg-white h-15 w-20 text-center rounded">
+
+<button onClick={()=>{navigate("/update")}} className="text-black">Update</button>
                     </div>
 
                 </div>
