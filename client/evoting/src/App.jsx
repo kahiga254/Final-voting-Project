@@ -7,7 +7,7 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react'
 
 import { WagmiConfig } from 'wagmi'
-import { arbitrum, mainnet, polygonMumbai } from 'viem/chains'
+import { celoAlfajores } from 'viem/chains'
 
 // 1. Get projectId
 const projectId = id
