@@ -61,17 +61,17 @@ export default function UpdatePage() {
       };
       
 
-            //updatePrsident
-            const handleUpdatePresident = async(_index)=>{
-                try{
-                    
+           //updatePrsident
+   const handleUpdatePresident = async(_index)=>{
+    try{
+        
 setPresidentnewtIndex(_index);
+setShowPopup(false)
 
-
-                }catch(error){
-                   console.log("error",error); 
-                }
-            }
+    }catch(error){
+       console.log("error",error); 
+    }
+}
             
 
 useEffect(()=>{

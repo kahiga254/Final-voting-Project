@@ -74,7 +74,7 @@ useEffect(()=>{
     <>
       <div className="h-screen text-white w-full bg-blue-900">
         <Navbar />
-        <div className="w-full w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 mb-4 ">
+        <div className=" w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 mb-4 ">
             <div>
             <button onClick={()=>{navigate("/update")}}>President</button>
             </div>
