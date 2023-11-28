@@ -9,6 +9,14 @@ import { EvotingAddress } from "../constants/addresses";
 
 export default function VotingPanel() {
     const [presidentIndex,setPresidentIndex] = useState();
+    const [accademicIndex,setAccademicIndex] = useState();
+    const [sportsIndex,setSportsIndex] = useState();
+    const [confirmVote,setConfirmVote] = useState(false);
+    const [confirmVoteForSports,setConfirmVoteForSport] = useState(false);
+    const [confirmVoteForAccademic,setConfirmVoteForAccademic] = useState(false);
+    const [selectedPresidentIndex, setSelectedPresidentIndex] = useState(null);
+    const [selectedSportsIndex, setSelectedSportsIndex] = useState(null);
+    const [selectedAccademicIndex, setSelectedAccademicIndex] = useState(null);
 
 
 
@@ -40,15 +48,76 @@ export default function VotingPanel() {
         functionName:"voteForPresident",
         args:[presidentIndex]
       })
-      //function handle voting for president
-      const handleVotingForPresident = async(index)=>{
-        setPresidentIndex(index);
+      //voting for accademic
+      
+      const {writeAsync:voteforAccademic} = useContractWrite({
+        address: EvotingAddress,
+        abi:EvotingAbi,
+        functionName:"voteForAccademicRep",
+        args:[accademicIndex]
+      })
+      //function handle voting for accademic
+      const handleVotingForAccademic = async(index)=>{
+        setAccademicIndex(index);
         try{
-await voteforPresident();
+await voteforAccademic();
+setConfirmVoteForAccademic(false);
 
         }catch(error){
             console.log("Voting Error",error);
         }
+      }
+      //voting for sports
+      const {writeAsync:voteforsports} = useContractWrite({
+        address: EvotingAddress,
+        abi:EvotingAbi,
+        functionName:"voteForSports",
+        args:[sportsIndex]
+      })
+      //function handle voting for accademic
+      const handleVotingForSports = async(index)=>{
+        setSportsIndex(index);
+        try{
+await voteforsports();
+setConfirmVoteForSport(false);
+
+        }catch(error){
+            console.log("Voting Error",error);
+        }
+      }
+      //function handle voting for president
+      const handleVotingForPresident = async(index)=>{
+        //setPresidentIndex(index);
+        try{
+await voteforPresident();
+setConfirmVote(false);
+
+        }catch(error){
+            console.log("Voting Error",error);
+        }
+      }
+      //setIndex
+      //function handle voting for president
+      const handleVotingForPresidentIndex = async(index)=>{
+        setPresidentIndex(index);
+    setSelectedPresidentIndex(index);
+    setConfirmVote(true);
+        
+      }
+
+       //function handle voting for Sports
+       const handleVotingForSportsIndex = async(index)=>{
+        setSportsIndex(index);
+    setSelectedSportsIndex(index);
+    setConfirmVoteForSport(true);
+        
+      }
+      //function handle voting for Sports
+      const handleVotingForAccademicIndex = async(index)=>{
+        setAccademicIndex(index);
+    setSelectedAccademicIndex(index);
+    setConfirmVoteForAccademic(true);
+        
       }
     const items =[
         {_name:"terry",
@@ -65,12 +134,12 @@ await voteforPresident();
 
 useEffect(()=>{
     console.log("data freelancers",president);
-},[])
+},[confirmVote,confirmVoteForAccademic,confirmVoteForSports])
   return (
     <>
-      <div className="h-screen text-white w-full bg-blue-900">
+      <div className="min-h-full h-screen text-white w-full bg-blue-900 relative">
         <Navbar />
-        <div className="w-full w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 ">
+        <div className=" w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 ">
             <div>
                 <span>PRESIDENT</span>
             </div>
@@ -97,7 +166,8 @@ useEffect(()=>{
                 <p className="text-gray-600">Votes: {Number(item.noofVotes)}</p>
           </div>
           <div className="flex justify-center rounded items-center bg-green-400">
-            <button onClick={()=>{handleVotingForPresident(index)}} >Vote</button>
+            {selectedPresidentIndex === index && confirmVote ?<button onClick={()=>{handleVotingForPresident(index)}} >Confirm</button>:<button onClick={()=>{handleVotingForPresidentIndex(index)}} >Vote</button>}
+            
 
           </div>
                 
@@ -118,7 +188,7 @@ useEffect(()=>{
                 <p className="text-gray-600">Votes: {Number(item.noofVotes)}</p>
           </div>
           <div className="flex justify-center rounded items-center bg-green-400">
-            <button onClick={()=>{handleVotingForPresident(index)}} >Vote</button>
+          {selectedSportsIndex === index && confirmVoteForSports ?<button onClick={()=>{handleVotingForSports(index)}} >Confirm</button>:<button onClick={()=>{handleVotingForSportsIndex(index)}} >Vote</button>}
 
           </div>
                 
@@ -139,7 +209,7 @@ useEffect(()=>{
                 <p className="text-gray-600">Votes: {Number(item.noofVotes)}</p>
           </div>
           <div className="flex justify-center rounded items-center bg-green-400">
-            <button onClick={()=>{handleVotingForPresident(index)}} >Vote</button>
+          {selectedAccademicIndex === index && confirmVoteForAccademic ?<button onClick={()=>{handleVotingForAccademic(index)}} >Confirm</button>:<button onClick={()=>{handleVotingForAccademicIndex(index)}} >Vote</button>}
 
           </div>
                 

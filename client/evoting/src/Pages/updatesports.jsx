@@ -72,9 +72,9 @@ useEffect(()=>{
 },[])
   return (
     <>
-      <div className="h-screen text-white w-full bg-blue-900">
+      <div className="min-h-full h-screen text-white w-full bg-blue-900 relative">
         <Navbar />
-        <div className="w-full w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 mb-4 ">
+        <div className=" w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 mb-4 ">
             <div>
                 
             </div>
