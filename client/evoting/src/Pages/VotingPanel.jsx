@@ -133,7 +133,7 @@ setConfirmVote(false);
             },[])
 
 useEffect(()=>{
-    console.log("data freelancers",president);
+    console.log("data freelancerss",president);
 },[confirmVote,confirmVoteForAccademic,confirmVoteForSports])
   return (
     <>
