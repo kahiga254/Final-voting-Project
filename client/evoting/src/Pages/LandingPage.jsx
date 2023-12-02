@@ -13,11 +13,11 @@ export default function LandingPage(){
           <div className="flex justify-between items-center mt-10 m-20">
             <div className="w-full h-full">
 <div>
-<img src={VotingImage}  alt="Voting Image"/>
+<img src={VotingImage} style={{ width: '500px', height: '500px' }}  alt="Voting Image"/>
 </div>
             </div>
-            <div className="flex flex-col items-center h-full w-full text-black gap-8">
-            <span className="text-7xl">Online</span>
+            <div className="flex flex-col items-center h-full w-full text-black gap-16 ">
+            <span className="text-7xl md:text-9xl">Online</span>
             <span className="text-7xl">Voting</span>
             <div className="flex flex-col 
             
