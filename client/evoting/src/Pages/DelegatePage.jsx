@@ -60,9 +60,9 @@ await registerDelegate();
   }
 
   return (
-    <div className="h-full text-white w-full bg-blue-900">
+    <div className="h-full text-black w-full bg-lime-200">
       <Navbar />
-      <div className="h-full text-white w-full grid grid-cols-2 bg-blue-900">
+      <div className="h-full text-black w-full grid grid-cols-2 bg-lime-200">
         <div className="w-full h-full flex flex-col justify-start pt-10 mt-10">
           <h1 className="text-5xl">Delegate Registration Form</h1>
           <div className="flex-grow mt-10">
@@ -104,7 +104,7 @@ await registerDelegate();
                   value={delegate}
                 />
               </div> */}
-              <div className="bg-blue-700 rounded-2xl w-36 h-10 flex justify-center items-center mt-10 ml-10">
+              <div className="bg-teal-400 rounded-2xl w-36 h-10 flex justify-center items-center mt-10 ml-10">
                 <button type="submit">SUBMIT</button>
               </div>
             </form>

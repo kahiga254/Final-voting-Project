@@ -2,33 +2,44 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import HomeNavBar from "../components/HomeNavbar";
+import VotingImage from "../assets/voting2.png"
+import ConnectButton from "../components/Connect";
 export default function LandingPage(){
   const navigate = useNavigate();
     return(
         <>
-        <div className="h-full text-white  w-full bg-blue-900">
-          <HomeNavBar/>
+        <div className="h-full text-black  w-full bg-lime-200 ">
+          {/* <HomeNavBar/> */}
+          <div className="flex justify-between items-center mt-10 m-20">
+            <div className="w-full h-full">
+<div>
+<img src={VotingImage}  alt="Voting Image"/>
+</div>
+            </div>
+            <div className="flex flex-col items-center h-full w-full text-black gap-8">
+            <span className="text-7xl">Online</span>
+            <span className="text-7xl">Voting</span>
+            <div className="flex flex-col 
+            
+            ">
+              <span>Hello There...</span>
+              <span>
+Welcome to the JKUAT Student's council Online Voting
+Platform</span>
+<span>
+Start making your decision today.</span>
+            </div>
+           
+<ConnectButton/>
+            
+            
+            </div>
 
-        <div className="h-1/2 w-full">
-  <div className="h-1/2 w-full flex-col text-7xl justify-start items-start pt-10 ">
-    <h1 className="text-7xl pb-10">Hello There...</h1>
-    <h1 className="pb-10">Welcome to the Online Voting</h1>
-    <h1 className="pb-10">Platform</h1>
-    <h1 className="text-3xl">Start making your decision today.</h1>
-  </div>
- 
-  
-</div>
-<div className="w-full justify-start text-white mt-48">
-  <div className="w-1/2 h-full flex justify-around">
-    {/* <div className="bg-gray-400 w-40 h-10 text-center rounded-xl flex items-center justify-center">
-      <button className="text-center">LOGIN</button>
-    </div> */}
-    <div>
-      {/* <button onClick={()=>{navigate("/registration")}}className="w-40 h-10 bg-gray-400 text-white rounded-xl flex items-center justify-center">REGISTER</button> */}
-    </div>
-  </div>
-</div>
+          </div>
+          
+
+        
+
 
 
 

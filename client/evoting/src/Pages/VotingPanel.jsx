@@ -137,7 +137,7 @@ useEffect(()=>{
 },[confirmVote,confirmVoteForAccademic,confirmVoteForSports])
   return (
     <>
-      <div className="min-h-full h-screen text-white w-full bg-blue-900 relative">
+      <div className="min-h-full h-screen text-black w-full bg-lime-200 relative">
         <Navbar />
         <div className=" w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 ">
             <div>

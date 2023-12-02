@@ -7,7 +7,7 @@ const Navbar =()=>{
     const navigate = useNavigate();
     return(
         <>
-        <div className="w-full h-10 bg-gray-500 ">
+        <div className="w-full h-10 bg-green-700 ">
             <div className="w-full h-full flex justify-around items-center">
                 <div className="flex justify-around w-1/2 items-center">
                     <div className="bg-white h-15 w-20 text-center rounded">

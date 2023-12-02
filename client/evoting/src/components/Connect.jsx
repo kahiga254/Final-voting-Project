@@ -14,8 +14,8 @@ export default function ConnectButton() {
 
   return (
     <>
-      <div className='flex justify-around items-center h-20'>
-        <button onClick={handleLogin}>Login</button>
+      <div className='flex justify-around  bg-green-400 rounded w-40 h-10 items-center'>
+        <button className='text-2xl text-black' onClick={handleLogin}>Login</button>
       </div>
     </>
   );

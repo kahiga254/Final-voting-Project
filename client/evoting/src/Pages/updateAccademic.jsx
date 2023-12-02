@@ -72,7 +72,7 @@ useEffect(()=>{
 },[])
   return (
     <>
-      <div className="min-h-full h-screen text-white w-full bg-blue-900 relative">
+      <div className="min-h-full h-screen text-black w-full bg-lime-200 relative">
         <Navbar />
         <div className=" w-full justify-around items-center grid grid-cols-3 gap-2 ml-4 mr-4 mb-4 ">
             <div>
@@ -114,7 +114,7 @@ useEffect(()=>{
  
   
 </div>:
-<div className="bg-blue-900 w-full h-full">
+<div className="bg-lime-200 w-full h-full">
 <div className="flex items-center justify-center h-screen ">
         <div className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-bold mb-4">Form</h2>
@@ -150,7 +150,7 @@ useEffect(()=>{
       
             <button
                onClick={handleUpdate}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+              className="bg-teal-400 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
             >
               Submit
             </button>
