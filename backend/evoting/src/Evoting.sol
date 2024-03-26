@@ -282,6 +282,10 @@ function returnTotalNumberOFAccademic()public view returns(uint){
 function returnTotalNumberofSports()public view returns(uint){
     return totalNumberofSportsVotes;
 } 
+
+function addAdmin(address _admin)public {
+    Admins.push(_admin);
+}
 }
 
 // Deployer: 0x65E28C9C4Ef1a756d8df1c507b7A84eFcF606fd4
