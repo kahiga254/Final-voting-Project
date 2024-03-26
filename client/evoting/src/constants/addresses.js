@@ -1,4 +1,4 @@
-export const EvotingAddress = "0x714c869113013c1Ec0977a49C7A1b3759F35a1ad" //two"0xa3f73177577Bfa8A2B1545916c4F25d4Bdc4fdc5" //"0xBa3c3f1ca1fc0530cc4F12909D19CeDEB9d138CF"
+export const EvotingAddress =  "0xA7f27789bE4aD425Ca7de83BC7A55372b379885f" //"0x714c869113013c1Ec0977a49C7A1b3759F35a1ad" //two"0xa3f73177577Bfa8A2B1545916c4F25d4Bdc4fdc5" //"0xBa3c3f1ca1fc0530cc4F12909D19CeDEB9d138CF"
 export  const  id="7201f7bfa0132350c6ad444e2b53cee2" 
 
 
@@ -10,3 +10,11 @@ export  const  id="7201f7bfa0132350c6ad444e2b53cee2"
 // Deployer: 0xeC4C62d02Fb670F95Ab04416bC1D51831759BD4F
 // Deployed to: 
 // Transaction hash: 0x53d9e1f0a0e725270bdcac5b06817c3644c805ad9f5b183db3a1ac607698b50c
+
+
+
+///new one 2024
+
+// Deployer: 0x24DfecD4b8440923d7344da5d328febb37c643cd
+// Deployed to: 0xA7f27789bE4aD425Ca7de83BC7A55372b379885f
+// Transaction hash: 0x46df8e0cb5f9cbc4a5c505aecda735d1bb54bcb1391b6665ef55844b7b6679aa
